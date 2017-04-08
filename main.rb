@@ -13,10 +13,14 @@ many_nums = [3, -6, 1, -5, 10000, 9900000000000, 90, 33, 900003000]
 def max_value(numray)
   for index in (0..numray.length)
     if index == 0
+      #sets variable greater_num to the first number in the array
     greater_num = numray[index]
+    #compares next number in array to greater_num .to_i makes them integers otherwise ruby will throw an error
   elsif numray[index+1].to_i > greater_num.to_i
        greater_num = numray[index+1]
+       #if the next number is bigger than greater_num then it sets that number as greater_num
      else
+       #otherwise greater_num stays at whatever value it was
        greater_num = greater_num
      end
   end
@@ -46,27 +50,25 @@ super_hero_alter_egos = [
   "clark kent"
 ]
 
-# def combining_rays (rayone, raytwo)
-#   hash = Hash.new
-#   rayone.each_with_index do |value, index|
-#   hash[value.to_sym] = raytwo[index]
-#   end
-#  hash
-# end
-#
-# puts combining_rays(super_hero_alias, super_hero_alter_egos)
-
 def combining_rays (rayone, raytwo)
   hash = Hash.new
-   for j in rayone
-     j = 0
-     j += 1
-    for i in raytwo
-      i = 0
-      i += 1
-      hash[rayone[j]] = raytwo[i]
-    end
+  rayone.each_with_index do |value, index|
+  hash[value.to_sym] = raytwo[index]
   end
+ hash
+end
+
+puts combining_rays(super_hero_alias, super_hero_alter_egos)
+
+def combining_rays (rayone, raytwo)
+  #makes a new hash
+  hash = Hash.new
+  # iterate from the first index til the end of the array
+   for j in (0..rayone.length - 1)
+     #sets the values from the first array as keys and sets the values of the second array as values to the new hash
+      hash[rayone[j]] = raytwo[j]
+  end
+  #returns the hash
   hash
 end
 
@@ -96,4 +98,4 @@ def fizz_buzz()
   end
 end
 
-#fizz_buzz()
+fizz_buzz()
