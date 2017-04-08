@@ -7,19 +7,17 @@ end
 puts add_america("hambugers")
 
 # Create a function to find the maximum value in an array of numbers. For instance: [100,10,-1000] should return 100. Do not use Ruby's built-in .max function.
+#
 
-many_nums = [3, -6, 1, -5, 10000, 90, 33]
+many_nums = [3, -6, 1, -5, 10000, 9900000000000, 90, 33, 900003000]
 def max_value(numray)
-  for i in numray
-    i = 0
-    i += 1
-    #compares the first item in the array at position 0 to the next item in the array
-    if numray[i] > numray[i+=1]
-      #if the first item is bigger than the next item then store that number to variable greater_num
-       greater_num = numray[i]
-     else numray[i+=1] > numray[i]
-       #if the next item in the array is bigger then store that item to variable greater_num
-       greater_num = numray[i+=1]
+  for index in (0..numray.length)
+    if index == 0
+    greater_num = numray[index]
+  elsif numray[index+1].to_i > greater_num.to_i
+       greater_num = numray[index+1]
+     else
+       greater_num = greater_num
      end
   end
   #return greater_num
@@ -48,12 +46,30 @@ super_hero_alter_egos = [
   "clark kent"
 ]
 
+# def combining_rays (rayone, raytwo)
+#   hash = Hash.new
+#   rayone.each_with_index do |value, index|
+#   hash[value.to_sym] = raytwo[index]
+#   end
+#  hash
+# end
+#
+# puts combining_rays(super_hero_alias, super_hero_alter_egos)
+
 def combining_rays (rayone, raytwo)
   hash = Hash.new
-  [rayone, raytwo].each_index do |i, j|
-    hash:i => j
+   for j in rayone
+     j = 0
+     j += 1
+    for i in raytwo
+      i = 0
+      i += 1
+      hash[rayone[j]] = raytwo[i]
+    end
   end
+  hash
 end
+
 puts combining_rays(super_hero_alias, super_hero_alter_egos)
 
 
@@ -77,9 +93,7 @@ def fizz_buzz()
       #otherwise print the number
       print i
     end
-
   end
-
 end
 
 #fizz_buzz()
