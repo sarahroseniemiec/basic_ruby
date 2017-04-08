@@ -13,12 +13,16 @@ def max_value(numray)
   for i in numray
     i = 0
     i += 1
+    #compares the first item in the array at position 0 to the next item in the array
     if numray[i] > numray[i+=1]
+      #if the first item is bigger than the next item then store that number to variable greater_num
        greater_num = numray[i]
      else numray[i+=1] > numray[i]
+       #if the next item in the array is bigger then store that item to variable greater_num
        greater_num = numray[i+=1]
      end
   end
+  #return greater_num
   greater_num
 end
 
@@ -34,6 +38,7 @@ super_hero_alias = [
   "the hulk",
   "superman"
 ]
+
 super_hero_alter_egos = [
   "bruce wayne",
   "selina kyle",
@@ -43,13 +48,13 @@ super_hero_alter_egos = [
   "clark kent"
 ]
 
-def (ray1, ray2)
+def combining_rays (rayone, raytwo)
   hash = Hash.new
-  ray1.each do |ray|
-
+  [rayone, raytwo].each_index do |i, j|
+    hash:i => j
+  end
 end
-
-
+puts combining_rays(super_hero_alias, super_hero_alter_egos)
 
 
 # Write a program that prints the numbers from 1 to 100, except:
@@ -59,13 +64,17 @@ end
 
 def fizz_buzz()
   for i in 1..100
+    #if i is divisible by 3 without a remainder and divisable by 5 without a remainder
     if i % 3 == 0 && i % 5 == 0
       print "FizzBuzz"
+      #else if i is divisible by 3 without a remainder
     elsif i % 3 == 0
       print "Fizz"
+      #else if i is divisable by 5 without a remainder
     elsif i % 5 == 0
       print "Buzz"
     else
+      #otherwise print the number
       print i
     end
 
